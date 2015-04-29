@@ -16,13 +16,21 @@ var data = {
 				name:'wshp'
 			};
 
+var indexPageRender = template.compile('./templates/index');
+console.log(indexPageRender(data));
+
+var testHtml = template.renderFile('./templates/index', data);
+console.log(testHtml);
+
 app.get('/', function (rq, rs) {
 	
 	console.log('render');
+
+	rs.writeHead(200, {'Content-Type': 'text/html'});
+	rs.end(testHtml);
+
 	rs.render('index', data, function(err, html){
-		rs.writeHead(200, {'Content-Type': 'text/html'});
-		rs.end(html);
-		console.log(html);
+		
 	});
 
 	
