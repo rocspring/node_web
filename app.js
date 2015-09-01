@@ -25,13 +25,13 @@ console.log(testHtml);
 app.get('/', function (rq, rs) {
 	
 	console.log('render');
-
+	
 	rs.writeHead(200, {'Content-Type': 'text/html'});
 	rs.end(testHtml);
 
-	rs.render('index', data, function(err, html){
+	// rs.render('index', data, function(err, html){
 		
-	});
+	// });
 
 	
 
